@@ -20,7 +20,7 @@ class App extends React.Component {
     }
   }
   getDataFromAPI=()=>{
-    fetch("http://localhost:8080/calculators")
+    fetch("http://localhost:8080/calculations")
     .then((response) => response.json())
     .then((response)=> {
       this.setState ({calculations : response });
@@ -38,7 +38,7 @@ class App extends React.Component {
 	        <Route
 	          exact
 	          path="/"
-	          render={ (props) => <CalcForm {...props} getDataFromAPI={this.getDataFromAPI} />}
+	          render={ (props) => <CalcForm {...props} calculations={this.state.calculations} getDataFromAPI={this.getDataFromAPI} />}
 	          />
 
 	        <Route

@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, BottomNavigation, BottomNavigationAction } from '@material-ui/core';
-import BusinessIcon from '@material-ui/icons/Business';
-import ViewListIcon from '@material-ui/icons/ViewList';
+import AddIcon from '@material-ui/icons/Add';
+import StorageIcon from '@material-ui/icons/Storage';
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
@@ -33,11 +33,11 @@ return (
     <BottomNavigation
       value={value} onChange={handleChange}
       showLabels
-      className={classes.nav} >
+      className={classes.nav}
+    >
 
-      <BottomNavigationAction className={classes.root} label="Submit Company" value="folder" icon={<BusinessIcon  />}  component={Link} to="/" />
-
-      <BottomNavigationAction className={classes.root} label="Companies" value="storage" icon={<ViewListIcon />}  component={Link} to="/calculations" />
+      <BottomNavigationAction className={classes.root} label="Submit Company" value="folder" icon={<AddIcon  />}  component={Link} to="/" />
+      <BottomNavigationAction className={classes.root} label="Companies" value="storage" icon={<StorageIcon />}  component={Link} to="/calculations" />
 
     </BottomNavigation>
   </div>

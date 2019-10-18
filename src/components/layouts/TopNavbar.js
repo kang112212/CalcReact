@@ -90,7 +90,7 @@ export default function TopNavBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Calculator
+            Roman Numeral Calculator
           </Typography>
         </Toolbar>
       </AppBar>
