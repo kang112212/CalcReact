@@ -1,0 +1,16 @@
+#calcForm {
+  margin: 10px auto;
+}
+#card{
+  max-width: 275px;
+  min-width: 275px;
+  margin: auto;
+  padding: 30px 0;
+  background-color: #DCDCDC;
+  border: 1px solid black;
+}
+/* 
+.MuiInputBase-input, .MuiOutlinedInput-input{
+  color: green !important;
+  background-color: green !important;
+} */
