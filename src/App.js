@@ -1,45 +1,53 @@
 import React from 'react';
 import CalcForm from './components/CalcForm';
 import OutputPage from './components/OutputPage';
+import TopNavbar from './components/layouts/TopNavbar';
+import BotNavbar from './components/layouts/BotNavbar';
 import './App.css';
 
 import {
 	BrowserRouter as Router,
 	Route,
 	Switch,
-	Link,
 } from  "react-router-dom";
 
 
 class App extends React.Component {
-
+	constructor(){
+    super();
+    this.state={
+      calculations:[]
+    }
+  }
+  getDataFromAPI=()=>{
+    fetch("http://localhost:8080/calculators")
+    .then((response) => response.json())
+    .then((response)=> {
+      this.setState ({calculations : response });
+    });
+  }
+  componentDidMount(){
+    this.getDataFromAPI();
+  }
   render(){
     return (
 	      <Router>
-
-				<ul>
-					<li>
-						<Link to="/">Calculator</Link>
-					</li>
-					<li>
-						<Link to="/calculators">Calculator Entries</Link>
-					</li>
-				 </ul>
+					<TopNavbar />
 	        <Switch>
 
 	        <Route
 	          exact
 	          path="/"
-	          render={ (props) => <CalcForm />}
+	          render={ (props) => <CalcForm {...props} getDataFromAPI={this.getDataFromAPI} />}
 	          />
 
 	        <Route
-	          path="/calculators"
-	          render={ (props) => <OutputPage /> }
+	          path="/calculations"
+	          render={ (props) => <OutputPage calculations={this.state.calculations}/> }
 	        />
 
 	        </Switch>
-
+					<BotNavbar />
 	      </Router>
 
     );
